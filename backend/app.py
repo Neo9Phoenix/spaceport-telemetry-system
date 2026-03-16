@@ -470,11 +470,11 @@ if __name__ == "__main__":
         hours=3,
         next_run_time=datetime.now(timezone.utc),
     )
-    scheduler.start()
+    
+scheduler.start()
 
 import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
-    
