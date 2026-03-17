@@ -8,7 +8,7 @@ from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from fetch_epic import main as fetch_once
+from backend.fetch_epic import main as fetch_once
 
 
 # =========================================================
