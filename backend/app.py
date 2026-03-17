@@ -471,7 +471,21 @@ if __name__ == "__main__":
         next_run_time=datetime.now(timezone.utc),
     )
     
-scheduler.start()
+from apscheduler.schedulers.background import BackgroundScheduler
+from backend.fetch_epic import main as fetch_once
+
+scheduler = BackgroundScheduler()
+
+def start_scheduler():
+    scheduler.add_job(
+        fetch_once,
+        "interval",
+        minutes=10
+    )
+    scheduler.start()
+
+# Start scheduler when app loads
+start_scheduler()
 
 import os
 
